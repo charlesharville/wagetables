@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "headers/wt_title.h"
+#include "headers/wt_handlers.h"
+#include "headers/wt_tables.h"
 
-#define BUFFER 64
 
 /***************************************************************************************************************************
      <WageTables, a simple earnings calculator>
@@ -52,35 +54,12 @@
 
 int main(void) {
 
-    char wage[BUFFER];
-    char hours[BUFFER];
-    float wage_f;
-    int hours_n;
+
     
-    printf("Enter wage: $__\b\b");
-    fgets(wage, BUFFER, stdin);
-    wage_f = atof(wage);
-    printf("Your wage is %.2f. \nWhat are your hours? __\b\b", wage_f);
-    fgets(hours, BUFFER, stdin);
-    hours_n = atoi(hours);
-    float daily_earnings = wage_f*hours_n;
-    float weekly_earnings = wage_f*hours_n*5;
-    float monthly_earnings = wage_f*hours_n*5*4;
-    float quarterly_earnings = wage_f*hours_n*5*4*4;
-    float yearly_earnings = wage_f*hours_n*5*4*4*4;
-    
-    /* TODO: create a more elegant/complex table printing function */
-    /* TODO: improve table readability */
-    printf(" =============================================================================================================\n");
-    printf(" ||--- WageTable for %.2f an hour --------------------------------------------------------------------------\n",
-           wage_f);
-    printf(" ||   Hourly  | Daily    | Weekly    | Monthly     | Quarterly     | Yearly     |                           \n");
-    printf(" ||   $%.2f  | $%.2f   | $%.2f   | $%.2f    | $%.2f      | $%.2f  |                           \n",
-           wage_f, daily_earnings, weekly_earnings, monthly_earnings, quarterly_earnings, yearly_earnings);
-    printf(" =============================================================================================================\n");
-    
-    /* TODO: 1) write fgets() function for input 
-     *       2) convert input as necessary (check ebw for methods) */
+displayWageTablesTitle();
+getWage();
+getHours();
+getVacation();
     
     return 0;
 
