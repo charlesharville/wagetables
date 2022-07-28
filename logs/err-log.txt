@@ -1,1 +1,8 @@
+Here you will find all the errors a user has encountered in recent sessions.
+By default, the errors are logged for a maximum of 7 days. This number is stored in
+  int max_log_error_days
+The maximum number of errors to show for a single session is stored in
+  int max_log_error
+The maximum number of sessions whose errors will be logged is stored in
+  int max_log_error_sessions
 
